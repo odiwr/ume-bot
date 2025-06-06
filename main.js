@@ -7,6 +7,8 @@ const { joinVoiceChannel, createAudioPlayer, createAudioResource, AudioPlayerSta
 const { parseFile } = require('music-metadata');
 const ffmpeg = require('fluent-ffmpeg');
 
+process.env.RADIO_PATH ||= path.join(__dirname, 'radio');
+
 const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent]
 });
