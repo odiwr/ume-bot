@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const { Client, GatewayIntentBits, AttachmentBuilder } = require('discord.js');
 const { joinVoiceChannel, createAudioPlayer, createAudioResource, AudioPlayerStatus, StreamType } = require('@discordjs/voice');
-const mm = require('music-metadata');
+const mm = require('music-metadata/lib/core');
 const ffmpeg = require('fluent-ffmpeg');
 
 const client = new Client({
