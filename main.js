@@ -141,7 +141,7 @@ function playAudio(filePath, fadeSec, onFinish) {
     return onFinish();
   }
 
-  mm.parseFile(filePath).then(metadata => {
+  parseFile(filePath).then(metadata => {
     const duration = metadata.format.duration;
     const fadeOutStart = Math.max(0, duration - fadeSec);
 
