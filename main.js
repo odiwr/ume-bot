@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const { Client, GatewayIntentBits, AttachmentBuilder } = require('discord.js');
 const { joinVoiceChannel, createAudioPlayer, createAudioResource, AudioPlayerStatus, StreamType } = require('@discordjs/voice');
-const mm = require('music-metadata/lib/core');
+const { parseFile } = require('music-metadata');
 const ffmpeg = require('fluent-ffmpeg');
 
 const client = new Client({
@@ -44,7 +44,7 @@ client.once('ready', async () => {
 client.on('messageCreate', async (msg) => {
     if (msg.content === '*song' && currentTrackPath) {
         try {
-            const metadata = await mm.parseFile(currentTrackPath);
+            const metadata = await parseFile(currentTrackPath);
             const title = metadata.common.title || path.basename(currentTrackPath);
             const artist = metadata.common.artist || 'Unknown Artist';
             const cover = metadata.common.picture?.[0];
