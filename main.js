@@ -1,5 +1,5 @@
 // UME Discord Radio Bot - main.js
-require('dotenv').config();
+require('dotenv').config({ path: __dirname + '/.env' });
 const fs = require('fs');
 const path = require('path');
 const { Client, GatewayIntentBits, AttachmentBuilder } = require('discord.js');
